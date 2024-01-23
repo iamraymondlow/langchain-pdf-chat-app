@@ -20,7 +20,7 @@ class Message(BaseModel):
     def as_dict(self):
         return {"id": self.id, "role": self.role, "content": self.content}
 
-    def as_lc_message(self) -> HumanMessage | AIMessage | SystemMessage:
+    def as_lc_message(self) -> HumanMessage or AIMessage or SystemMessage:
         if self.role == "human":
             return HumanMessage(content=self.content)
         elif self.role == "ai":
